@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos CSS en HTML</HTML></title>
+    <meta name="description" content="en esta web veremos los diferentes estilos CSS en HTML">
+    <meta name="keywords" content="HTML, CSS, Estilos CSS, style in css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Formulario de Registro</h1>
+    <h2>Necesitamos de tu ayuda para completar esta informacion</h2>
+    <form action="Guardar.php" method="get">
+        <div class="itemform">
+            <label for="tid">Tipos de identificacion</label>
+            <select name="tid" id="tid">
+                <option value="CC">Cedula de ciudadania</option>
+                <option value="TI">Tarjeta de identidad</option>
+                <option value="CE">Cedula de extranjeria</option>
+            </select>           
+        </div>
+        <div class="itemform">
+            <label for="ident">Numero de identidad</label>
+            <input type="number" placeholder="Ejm: 189123961" name="ident" id="ident">
+        </div>
+        <div class="itemform">
+            <label for="">Nombres y Apellidos</label>
+            <input type="text" name="nom" id="nom">
+        </div>
+    </form>
+</body>
+</html>
