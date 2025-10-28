@@ -1,61 +1,215 @@
-* {
+*{
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
 }
-body {
-    margin: 10px 30px;
-    background: linear-gradient(to right,#57f4ff,#3c69ff);
-    font-family: cursive;
-    font-size: 14px;
+body{
+    background-color: #19191B;
+    color: #FFFFFF;
+    max-width: 100vw;
+}
+header{
     display: flex;
-    flex-direction: column;
-    align-items: center; 
+    justify-content: space-between;
+    padding: 2rem 3.125rem;
+    background: transparent;
 }
-h1 {
-    text-align: center;
-    text-shadow: 5px 1px 10px #440078;
-    padding-bottom: 20px;
+.LOGO img{
+    width: 90px;
 }
-h2 {
-    font-style: italic;
-    font-weight: 550;
-}
-form, h2 {
+.derecha{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.derecha img{
+    width: 45px;
+}
+.btn{
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    color: black;
+    background-color: #F7F7F7;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    border: 2px solid #F7F7F7;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+.btn:hover{
+    background-color: transparent;
+    color: #F7F7F7;
+}
+.derecha a{
+    color: #F7F7F7;
+}
+#principal, #nosotros, #acerca, #galeria, #inspiracion, #chef, #equipo, #awards, #contactos, #pie{
+    margin: 1rem 0px;
+    padding: 2rem 3.125rem;
+}
+#principal {
+    background: url("imagenes/el_chato_bistro.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    padding: 2rem 3.125rem;
+    height: 100vh;
+}
+.banner{
+    display: flex;
     justify-content: center;
-    max-width: 600px;
+}
+.banner img{
+    max-width: 550px;
+}
+.redes{
+    display: flex;
+    justify-content: flex-end;
+}
+.redes ul{
+    list-style: none;
+    display: flex;
     gap: 10px;
-    width: 1000px;
 }
-form {
-    margin-top: 10px;
-    border: 2px solid#5b04fd;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 5px 1px 5px #d900ff;
-    width: 100%;
-    max-width: 400px;
+#nosotros, #acerca{
+    display: flex;
+    gap: 20px;
 }
-.itemform {
+.texto{
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding-bottom: 10px;
+    gap: 20px;
 }
-input, select {
-    height: 25px;
-    border-radius: 10px;
-    padding-left: 8px;
-    transition-duration: 0.5s slow;
+.texto h1{
+    font-size: 4rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 10px;
 }
-input[type="text"]:focus, select:focus{
-    box-shadow: 4px 1px 2px greenyellow;
+#galeria{
+    display: flex;
+    justify-content: space-evenly;
 }
-h1::before{
-    content: "$ ";
-    font-size: 14px;
-    border: 1px solid black;
+#galeria img{
+    max-width: 300px;
+}
+.encima{
+    background: url("imagenes/foto_fondo.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+}
+.encima img{
+    max-width: 60%;
+}
+/* Carrusel con IA */
+/* Contenedor principal que enmascara las imágenes */
+.mini-carousel-container {
+  width: 100%;
+  max-width: 100vw;
+  padding: 2rem 3.125rem;
+  margin: 0 auto;
+  overflow: hidden; /* Oculta las imágenes que se salen del contenedor */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* Contenedor de todas las imágenes que se desplazan */
+.mini-carousel-images {
+  display: flex; /* Alinea todas las imágenes en una fila */
+  width: calc(300% + 100px); /* Ancho total del carrusel, adaptado para 5 imágenes + espacio */
+  gap: 20px; /* Espacio entre las imágenes */
+  animation: carrusel-scroll 21s linear infinite; /* Define la animación */
 }
 
+/* Pausa la animación al pasar el ratón por encima */
+.mini-carousel-container:hover .mini-carousel-images{
+  animation-play-state: paused;
+}
+
+/* Estilo para cada imagen pequeña */
+.mini-carousel-images img {
+  width: 200px; /* Ancho fijo para cada miniatura */
+  height: 200px; /* Alto fijo para cada miniatura */
+  object-fit: cover; /* Recorta la imagen sin distorsión */
+  border-radius: 8px;
+  flex-shrink: 0; /* Evita que las imágenes se encojan */
+}
+
+/* Definición de la animación */
+@keyframes carrusel-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    /* Desplaza el carrusel una cantidad que corresponde a la mitad de su contenido */
+    transform: translateX(-100%);
+  }
+}
+/* Photos del Chef */
+/* Contenedor principal que usa Flexbox para distribuir las imágenes */
+.full-width-carousel {
+  display: flex;
+  width: 98vw; /* Ocupa el 100% del ancho de la página */
+  /*height: 50vh;  Altura de las imágenes, puedes ajustarla */
+  overflow: hidden; /* Asegura que no haya desbordamiento si se cambia el tamaño */
+}
+
+/* Contenedor de cada imagen. Es crucial para evitar que el zoom de una afecte a las otras */
+.image-container {
+  flex: 1; /* Distribuye el espacio equitativamente entre las tres imágenes */
+  overflow: hidden; /* Oculta el desbordamiento cuando la imagen hace zoom */
+  position: relative; /* Necesario para el posicionamiento interno */
+}
+
+/* Estilo de las imágenes dentro de sus contenedores */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta la imagen para que cubra todo el espacio sin distorsión */
+  transition: transform 0.3s ease; /* Transición suave para la animación del zoom */
+}
+
+/* Efecto de zoom al pasar el mouse (hover) */
+.image-container:hover img {
+  transform: scale(1.2); /* Escala la imagen al 110% de su tamaño original */
+}
+/*galeria 2 */
+.galeria2{
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 1fr 3fr;
+}
+.galeria2 img{
+    flex: 1;
+    text-align: center;
+    overflow: hidden;
+    object-fit: cover;
+}
+/* Awards */
+#awards{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.premios{
+    display: flex;
+    justify-content: space-evenly;
+}
+.premios img{
+    width: 60px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+/* Contactos */
+#contactos{}
+h1{display: flex; align-items:center; gap: 30px;}
+h1 img{width: 150px;transform: rotate(25deg);}
+h2{display: flex; align-items:center; gap: 20px;}
+h2 img{width: 30px;}
+.col2{display: flex;justify-content: space-evenly;}
+.texto iframe{border-radius: 20px;}
+/* pie */
+#pie{display: flex;justify-content: space-between; gap: 20px;}
+#pie div ul{list-style: none;}
+ul lia a{text-decoration: none; color: #F7F7F7;}
